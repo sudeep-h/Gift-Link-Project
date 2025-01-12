@@ -26,16 +26,13 @@ router.get('/:id', async (req, res) => {
             return res.status(404).send('Gift not found');
         }
 
-        res.json(gift);
+        res.status(200).json(gift);
     } catch (e) {
         console.error('Error fetching gift:', e);
         res.status(500).send('Error fetching gift');
     }
 });
 
-
-
-// Add a new gift
 router.post('/', async (req, res, next) => {
     try {
         const db = await connectToDatabase();
